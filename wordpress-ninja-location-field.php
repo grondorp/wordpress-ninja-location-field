@@ -83,11 +83,10 @@ function ninja_location_desc_section_callback() {
     }
 
 function ninja_form_leaflet_script() {
-    $field_number = get_option('ninja_location_field_number', '311'); // Default to 311 if not set
+    $field_number = get_option('ninja_location_field_number', '311'); 
     ?>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
-            // Check if Leaflet is available
             if (typeof L === 'undefined') {
                 console.error('Leaflet library not found.');
                 return;
@@ -97,7 +96,6 @@ function ninja_form_leaflet_script() {
             const maxRetries = 3;
             const fieldNumber = <?php echo json_encode($field_number); ?>;
 
-            // Retry mechanism to ensure the map container exists
             function initializeMap() {
                 var mapContainer = document.getElementById('form-map');
                 if (mapContainer) {
